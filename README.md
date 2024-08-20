@@ -35,7 +35,7 @@ OR REPLACE FUNCTION find_similar_celebrities (
   image TEXT,
   occupation TEXT,
   age SMALLINT,
-  hobbies jsonb,
+  hobbies text[],
   country_of_origin TEXT,
   bio TEXT,
   similarity FLOAT
@@ -49,7 +49,7 @@ begin
         celebrities.image,
         celebrities.occupation,
         celebrities.age,
-        to_jsonb(celebrities.hobbies),
+       celebrities.hobbies,
         celebrities.country_of_origin,
         celebrities.bio,
         1 - (celebrities.embeddings <=> query_embedding) as similarity
