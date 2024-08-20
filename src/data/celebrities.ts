@@ -1,0 +1,111 @@
+export const celebrities: CelebrityProfile[] = [
+  {
+    first_name: "Tom",
+    last_name: "Holland",
+    image:
+      "https://static.wikia.nocookie.net/disney/images/2/2f/Tom_Holland.jpg/revision/latest/scale-to-width-down/1200?cb=20220705230939",
+    age: 27,
+    hobbies: ["Photography", "Golf", "Fitness"],
+    bio: "Tom Holland is an English actor and dancer, known for his role as Spider-Man in the Marvel Cinematic Universe.",
+    occupation: "Actor",
+    country_of_origin: "United Kingdom",
+  },
+  {
+    first_name: "Taylor",
+    last_name: "Swift",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_4.png/640px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_4.png",
+    age: 34,
+    hobbies: ["Songwriting", "Reading", "Gardening"],
+    bio: "Taylor Swift is an American singer-songwriter known for her narrative songwriting and numerous chart-topping hits.",
+    occupation: "Singer-Songwriter",
+    country_of_origin: "United States",
+  },
+  {
+    first_name: "Dwayne",
+    last_name: "Johnson",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/1/11/Dwayne_%22The_Rock%22_Johnson_Visits_the_Pentagon_%2841%29_%28cropped%29.jpg",
+    age: 52,
+    hobbies: ["Fitness", "Fishing", "Watching Football"],
+    bio: "Dwayne 'The Rock' Johnson is an American actor, producer, and retired professional wrestler, known for his roles in action films.",
+    occupation: "Actor",
+    country_of_origin: "United States",
+  },
+  {
+    first_name: "Emma",
+    last_name: "Watson",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Emma_Watson_2023_head_and_shoulders_1_%28cropped%29.jpg/640px-Emma_Watson_2023_head_and_shoulders_1_%28cropped%29.jpg",
+    age: 34,
+    hobbies: ["Reading", "Yoga", "Activism"],
+    bio: "Emma Watson is a British actress and activist, best known for her role as Hermione Granger in the Harry Potter series.",
+    occupation: "Actress",
+    country_of_origin: "United Kingdom",
+  },
+  {
+    first_name: "Chris",
+    last_name: "Hemsworth",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Chris_Hemsworth_by_Gage_Skidmore_3.jpg/1200px-Chris_Hemsworth_by_Gage_Skidmore_3.jpg",
+    age: 41,
+    hobbies: ["Surfing", "Fitness", "Playing with his kids"],
+    bio: "Chris Hemsworth is an Australian actor, known for his role as Thor in the Marvel Cinematic Universe.",
+    occupation: "Actor",
+    country_of_origin: "Australia",
+  },
+  {
+    first_name: "Rihanna",
+    last_name: "Fenty",
+    image:
+      "https://assets.vogue.in/photos/5cee5cccd314d34630eb749a/2:3/w_2560%2Cc_limit/Fenty%2520Beatuty%2520by%2520Rihanna%2520Anniversary%2520Event.jpg",
+    age: 36,
+    hobbies: ["Fashion Design", "Makeup", "Philanthropy"],
+    bio: "Rihanna is a Barbadian singer, actress, and businesswoman, known for her music and fashion empire, Fenty.",
+    occupation: "Singer, Businesswoman",
+    country_of_origin: "Barbados",
+  },
+  {
+    first_name: "Leonardo",
+    last_name: "DiCaprio",
+    image:
+      "https://cdn.britannica.com/65/227665-050-D74A477E/American-actor-Leonardo-DiCaprio-2016.jpg",
+    age: 49,
+    hobbies: ["Environmental Activism", "Collecting Art", "Traveling"],
+    bio: "Leonardo DiCaprio is an American actor and film producer, known for his work in blockbuster films and environmental activism.",
+    occupation: "Actor",
+    country_of_origin: "United States",
+  },
+  {
+    first_name: "Adele",
+    last_name: "Adkins",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/5/52/Adele_for_Vogue_in_2021.png",
+    age: 35,
+    hobbies: ["Singing", "Cooking", "Spending time with her son"],
+    bio: "Adele is an English singer-songwriter known for her powerful voice and soulful ballads.",
+    occupation: "Singer-Songwriter",
+    country_of_origin: "United Kingdom",
+  },
+  {
+    first_name: "Keanu",
+    last_name: "Reeves",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BNGJmMWEzOGQtMWZkNS00MGNiLTk5NGEtYzg1YzAyZTgzZTZmXkEyXkFqcGdeQXVyMTE1MTYxNDAw._V1_.jpg",
+    age: 59,
+    hobbies: ["Motorcycle Riding", "Writing", "Philanthropy"],
+    bio: "Keanu Reeves is a Canadian actor known for his roles in The Matrix and John Wick film series, as well as his humble personality.",
+    occupation: "Actor",
+    country_of_origin: "Canada",
+  },
+  {
+    first_name: "Beyoncé",
+    last_name: "Knowles-Carter",
+    image: "https://i.kinja-img.com/img/if0lnpenbnkasqgpnihl",
+    age: 42,
+    hobbies: ["Dancing", "Directing", "Fashion Design"],
+    bio: "Beyoncé is an American singer, songwriter, and actress, known for her influence in the music industry and powerful performances.",
+    occupation: "Singer-Songwriter",
+    country_of_origin: "United States",
+  },
+];

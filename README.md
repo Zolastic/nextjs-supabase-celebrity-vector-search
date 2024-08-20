@@ -20,17 +20,54 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Query used in Supabase for finding celebrities
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sql
+create or replace function find_similar_celebrities (
+  query_embedding vector (1536),
+  similarity_threshold float,
+  match_count int
+)
+returns table (
+  id bigint,
+  first_name text,
+  last_name text,
+  image text,
+  address jsonb,
+  occupation text,
+  age int2,
+  hobbies text[],
+  relationship_status text,
+  country_of_origin text,
+  email text,
+  bio text,
+  similarity float
+)
+language plpgsql as $$
+begin
+  return query
+  select
+    celebrities.id,
+    celebrities.first_name,
+    celebrities.last_name,
+    celebrities.image,
+    celebrities.address,
+    celebrities.occupation,
+    celebrities.age,
+    celebrities.hobbies,
+    celebrities.relationship_status,
+    celebrities.country_of_origin,
+    celebrities.email,
+    celebrities.bio,
+    1 - (celebrities.embeddings <=> query_embedding) as similarity
+  from
+    celebrities
+  where
+    1 - (celebrities.embeddings <=> query_embedding) > similarity_threshold
+  order by
+    celebrities.embeddings <=> query_embedding
+  limit
+    match_count;
+end;
+$$;
+```
