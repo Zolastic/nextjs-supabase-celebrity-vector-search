@@ -23,51 +23,44 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Query used in Supabase for finding celebrities
 
 ```sql
-create or replace function find_similar_celebrities (
+CREATE
+OR REPLACE FUNCTION find_similar_celebrities (
   query_embedding vector (1536),
-  similarity_threshold float,
-  match_count int
-)
-returns table (
-  id bigint,
-  first_name text,
-  last_name text,
-  image text,
-  address jsonb,
-  occupation text,
-  age int2,
-  hobbies text[],
-  relationship_status text,
-  country_of_origin text,
-  email text,
-  bio text,
-  similarity float
-)
-language plpgsql as $$
+  similarity_threshold FLOAT,
+  match_count INT
+) RETURNS TABLE (
+  id BIGINT,
+  first_name TEXT,
+  last_name TEXT,
+  image TEXT,
+  occupation TEXT,
+  age SMALLINT,
+  hobbies jsonb,
+  country_of_origin TEXT,
+  bio TEXT,
+  similarity FLOAT
+) LANGUAGE plpgsql AS $$
 begin
-  return query
-  select
-    celebrities.id,
-    celebrities.first_name,
-    celebrities.last_name,
-    celebrities.image,
-    celebrities.address,
-    celebrities.occupation,
-    celebrities.age,
-    celebrities.hobbies,
-    celebrities.relationship_status,
-    celebrities.country_of_origin,
-    celebrities.email,
-    celebrities.bio,
-    1 - (celebrities.embeddings <=> query_embedding) as similarity
-  from
-    celebrities
-  where
-    1 - (celebrities.embeddings <=> query_embedding) > similarity_threshold
-  order by
-    celebrities.embeddings <=> query_embedding
-  limit
-    match_count;
+    return query
+    select
+        celebrities.id,
+        celebrities.first_name,
+        celebrities.last_name,
+        celebrities.image,
+        celebrities.occupation,
+        celebrities.age,
+        to_jsonb(celebrities.hobbies),
+        celebrities.country_of_origin,
+        celebrities.bio,
+        1 - (celebrities.embeddings <=> query_embedding) as similarity
+    from
+        celebrities
+    where
+        1 - (celebrities.embeddings <=> query_embedding) > similarity_threshold
+    order by
+        celebrities.embeddings <=> query_embedding
+    limit
+        match_count;
 end;
 $$;
 ```
